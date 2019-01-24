@@ -243,8 +243,6 @@
 
 ];
 
-
-
 allAlcohols.each do |drink|
   Alcohol.create(drink)
 end
