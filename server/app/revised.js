@@ -1,14 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-    #require `pry`
-    Alcohol.destroy_all
-    
-    allAlcohols = [
+let allAlcohols = [
     {
         name: "Patron Anejo Tequila",
         abv: 40,
@@ -210,6 +200,7 @@
     category: "wine"
 },
 
+
 {
     name: "Pinot Noir",
     abv: 1,
@@ -243,11 +234,14 @@
 
 ];
 
-
-
-allAlcohols.each do |drink|
-  Alcohol.create(drink)
-end
-
-
-Drink.create(drink_amount:2, alcohol_id:1, user_list_id:1)
+Array.from(document.querySelectorAll("[name='purealcoholperserving'] option"))
+    .map(option => option.innerText)
+    .map(text => text.split("/").map(str => str.trim()))
+    .map(arr => {
+        let [name, abvString = null, servingOzString = null] = arr;
+        const abv = abvString === null ? null : parseFloat(abvString.replace("% ABV"))
+        const oz = servingOzString === null ? null : parseInt(servingOzString.replace("oz serving"))
+        return { name, abv, oz }
+    })
+    .map(obj => `Drink.create(name: "${obj.name}", abv_percentage: ${obj.abv || "nil"}, serving_ounces: ${obj.oz || "nil"})`)
+    .join("\r\n")
