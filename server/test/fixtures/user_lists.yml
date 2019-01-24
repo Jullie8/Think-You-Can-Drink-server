@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  beverage: MyString
+  sex: MyString
+  weight: 1
+  drinks: 1
+
+two:
+  beverage: MyString
+  sex: MyString
+  weight: 1
+  drinks: 1

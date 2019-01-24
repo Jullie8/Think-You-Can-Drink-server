@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  drinkAmount: 1
+  alcohol: one
+  userList: one
+
+two:
+  drinkAmount: 1
+  alcohol: two
+  userList: two
