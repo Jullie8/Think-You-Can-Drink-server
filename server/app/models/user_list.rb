@@ -29,20 +29,36 @@ end
 
 def message 
     #if self.bac is between this range 
-    description;
-    if self.bac.between?(0.020, 0.039)
+    # description;
+    title = ''
+    if self.bac.between?(0.250,0.399) || self.bac > 0.40
+        title = 'Please Go To Hospital.'
+        description = 'DANGER  ZONE - at RISK for alcohol poisoning, consciousness is lost - STOP - DO NOT THINK ABOUT DRINKING ALL THAT'
+    elsif self.bac.between?(0.020, 0.039)
+        title = "Chillin'"
         description = "You may think you are slightly happier, but are you?, there is a loss of shyness and state of relaxation" 
     elsif self.bac.between?(0.040, 0.059)
+        title = "Straight Chillin'"
         description = "You may think you are wavy, chill natured and you may feel warm. A Level up on the happiness. judgment and memory has decreased"
     elsif self.bac.between?(0.06, 0.099)
-        description = 'Proceed with CAUTION: your speech, balance, reaction time, and hearing are affected. Toughts and feelings of extreme happiness. \n
-        Think you self control ... think again your judgment and memory will be  impaired.'
+        title = "Gettin' Kinda Tipsy"
+        description = 'Proceed with CAUTION: your speech, balance, reaction time, and hearing are affected. Toughts and feelings of extreme happiness. Think you self control ... think again your judgment and memory will be  impaired.'
     elsif self.bac.between?(0.100, 0.129)
-        description = "WARNING impairment exists: for motor coordination, your judgment is NOT WELL!. So you think you can speak think again you will speak unclearly;  balance, peripheral vision, reaction time, and hearing will be impaired."
-    # elsif self.bac.between?()
+        title = "Preeeetty Tipsy"
+        description = "WATCH OUT the law prohibits you from driving, impairment exists: for motor coordination, your judgment is NOT WELL!. So you think you can speak think again you will speak unclearly; balance, peripheral vision, reaction time, and hearing will be impaired. Happiness is at its peak"
+    elsif self.bac.between?(0.130, 0.159)
+        title = "Drunk/Schwifty"
+        description = 'WARNING with that amount of drinks you will experience blurry vision and balance will be off. Dysphoria begins you will not feel well my friend :('
+    elsif self.bac.between?(0.160, 0.199)
+        title = "Go Home, You're Drunk."
+        description = 'ALERT You gonna look slooppy with many drinks , nausea may begins. Better think again.'
+    elsif self.bac.between(0.200, 0.249)
+        title = "Beyond Wasted."
+        description = 'You really want that many DRINKS! Think about it you gonna need assistance walking, mentally confused, vomiting and perhaps blackout. '
     end
 end 
 
 end
+
 
 #effects partially gathered from https://mcwell.nd.edu/your-well-being/physical-well-being/alcohol/blood-alcohol-concentration/
